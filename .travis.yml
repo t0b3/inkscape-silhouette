@@ -101,6 +101,21 @@ jobs:
               - pip install libusb1
               - pip install pytest
 
+        - name: "Python: 3.7"
+          os: osx
+          osx_image: xcode11.5
+          language: shell
+          install:
+              - brew tap t0b3/inkscape
+              - brew install t0b3/inkscape/inkscape --HEAD # inkscape 0.92.5+
+#              - travis_wait brew install t0b3/inkscape/inkscape --HEAD # inkscape 0.92.5+
+          before_script:
+              - python3 --version                 # python symlink still point to python2
+              - pip3 install -r requirements.txt  # pip ... 
+              - pip3 install numpy
+              - pip3 install libusb1
+              - pip3 install pytest
+
         - name: "Python: 3.7 -- Inkscape 1.0"
           os: osx
           osx_image: xcode11.4
